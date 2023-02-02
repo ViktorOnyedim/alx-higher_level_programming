@@ -4,19 +4,23 @@
 
 
 class Rectangle:
-    """Class rectangle is defined
-    Args:
-        size (int): size of the rectangle
-    """
-    def __init__(self, width=0, height=0):
-        """Initialize the rectangle"""
-        self.__height = height
-        self.__width = width
+    """Class rectangle is defined"""
 
+    def __init__(self, width=0, height=0):
+        """Initialize the rectangle
+        Args:
+            width (int): The width of the rectangle
+            height (int): The height of the rectangle
+        """
+        self.width = width
+        self.height = height
+
+    @property
     def width(self):
         """retrieve the width of the rectangle"""
         return self.__width
 
+    @width.setter
     def width(self, value):
         """Set the width of the rectangle"""
         if not isinstance(value, int):
@@ -24,11 +28,13 @@ class Rectangle:
         if (value < 0):
             raise ValueError("width must be >= 0")
         self.__width = value
-        
+    
+    @property
     def height(self):
         """Retrieve the height of the rectangle"""
         return self.__height
     
+    @height.setter
     def height(self, value):
         """Set the height of the rectangle"""
         if not isinstance(value, int):

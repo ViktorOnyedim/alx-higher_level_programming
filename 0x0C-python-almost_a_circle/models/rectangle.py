@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Defines a class Rectangle"""
+
 from models.base import Base
 
 
@@ -73,12 +74,12 @@ class Rectangle(Base):
         """
             Prints the Rectangle instance with the character # in stdout
         """
-        for i in range(self.__y):
+        for y in range(self.__y):
             print()
-        for i in range(self.__height):
+        for row in range(self.__height):
             for x in range(self.__x):
                 print(" ", end="")
-            for j in range(self.__width):
+            for column in range(self.__width):
                 print("#", end="")
             print()
 
@@ -86,3 +87,8 @@ class Rectangle(Base):
         return f"[Rectangle] ({self.id}) \
 {self.__x}/{self.y} - {self.__width}/{self.__height}"
 
+    def update(self, *args):
+        """Assigns an argument to each attribute"""
+        attrs = ['id', 'width', 'height', 'x', 'y']
+        for i, arg in enumerate(args):
+            setattr(self, attrs[i], arg)

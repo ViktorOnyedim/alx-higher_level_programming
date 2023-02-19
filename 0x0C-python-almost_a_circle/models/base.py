@@ -20,7 +20,7 @@ class Base:
         """
             Parses a python list object and returns corresponding JSON object
         """
-        if list_dictionaries == None:
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         else:
             return json.dumps(list_dictionaries)

@@ -2,6 +2,7 @@
 
 """Define a class Square"""
 
+
 class Square:
     """Class square is defined
     Args:

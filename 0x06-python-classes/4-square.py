@@ -7,13 +7,15 @@ class Square:
     Args:
         size (int): size of the square
     """
-    def __init(self, size=0):
+    def __init__(self, size=0):
         self.__size = size
 
+    @property
     def size(self):
         """Retrieve the size of the square"""
         return self.__size
 
+    @size.setter
     def size(self, value=0):
         """Set the size of the square"""
         if not isinstance(value, int):

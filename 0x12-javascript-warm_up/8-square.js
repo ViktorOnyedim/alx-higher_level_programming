@@ -1,0 +1,15 @@
+#!/usr/bin/node
+const arg = parseInt(process.argv[2]);
+
+if (isNaN(arg)) {
+  console.log('Missing size');
+} else {
+  for (let i = 0; i < arg; i++) {
+    /* empty string to hold the row */
+    let row = '';
+    for (let j = 0; j < arg; j++) {
+      row += '#';
+    }
+    console.log(row);
+  }
+}

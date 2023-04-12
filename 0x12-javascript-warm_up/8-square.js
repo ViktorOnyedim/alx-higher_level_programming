@@ -8,7 +8,7 @@ if (isNaN(arg)) {
     /* empty string to hold the row */
     let row = '';
     for (let j = 0; j < arg; j++) {
-      row += '#';
+      row += 'X';
     }
     console.log(row);
   }

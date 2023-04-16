@@ -1,15 +1,11 @@
 #!/usr/bin/python3
 
 import MySQLdb
-import sys
+from sys import argv
 
 if __name__ == '__main__':
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
     """connect to MySQL database"""
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1], passwd=argv[2], db=argv[3])
 
     """create cursor object to execute queries"""
     cur = db.cursor()
@@ -20,8 +16,7 @@ if __name__ == '__main__':
     rows = cur.fetchall()
 
     for row in rows:
-        for col in row:
-            print(row)
+        print(row)
 
     """Close cursor and database connection"""
     cur.close()

@@ -11,8 +11,8 @@ if __name__ == '__main__':
     """create cursor object to execute queries"""
     cur = db_connect.cursor()
 
-    cur.execute("SELECT * FROM states \
-        WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC")
+    cur.execute("""SELECT * FROM states WHERE name 
+        LIKE BINARY 'N%' ORDER BY states.id ASC""")
     rows = cur.fetchall()
     for row in rows:
         print(rows)

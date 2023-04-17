@@ -5,17 +5,15 @@ from sys import argv
 
 
 if __name__ == '__main__':
-    host = "localhost"
-    user, pwd, db = argv[1], argv[2], argv[3]
-
     """connect to the database"""
-    db_connect = MySQLdb.connect(host=host, port=3306, user=user, passwd=pwd, db=db)
+    db_connect = MySQLdb.connect(host=host, port=3306, user=argv[1], passwd=argv[2], db=argv[3])
 
     """create cursor object to execute queries"""
-    cur=db_connect.cursor()
+    cur = db_connect.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
-    rows = cur.fetchall()  
+    cur.execute("SELECT * FROM states \
+        WHERE name LIKE 'N%' ORDER BY states.id ASC")
+    rows = cur.fetchall()
     for row in rows:
         print(rows);
 

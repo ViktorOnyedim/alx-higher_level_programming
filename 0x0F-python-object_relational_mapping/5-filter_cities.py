@@ -21,8 +21,7 @@ if __name__ == '__main__':
         JOIN states ON cities.state_id = states.id \
         WHERE states.name = %s ORDER BY cities.id ASC", (argv[4],))
     cities = cur.fetchall()
-    for city in cities:
-        print(city)
+    print(", ".join(city[0] for city in cities))
 
     cur.close()
     db.close()

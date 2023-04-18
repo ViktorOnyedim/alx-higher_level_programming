@@ -20,7 +20,9 @@ if __name__ == '__main__':
     """Create cursor object"""
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM cities ORDER BY cities.id ASC")
+    cur.execute("SELECT cities.id, cities.name, states.name FROM cities \
+        JOIN states ON cities.state_id = state.id \
+        ORDER BY cities.id ASC")
     rows = cur.fetchall()
     for row in rows:
         print(row)

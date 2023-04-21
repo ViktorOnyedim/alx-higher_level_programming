@@ -19,8 +19,11 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).filter(State.id == 2).all()
-    for state in states:
+    state = session.query(State).filter(State.id == 2).first()
+    if state:
         state.name = "New Mexico"
+        session.commit()
+    else:
+        print("State not found")
 
     session.close()

@@ -28,6 +28,6 @@ if __name__ == '__main__':
     cities = query.join(State, join_condition).order_by(City.id.asc()).all()
 
     for city, state_name in cities:
-        print("{}: {} {}".format(state_name, city.id, city.name))
+        print("{}: ({}) {}".format(state_name, city.id, city.name))
 
     session.close()

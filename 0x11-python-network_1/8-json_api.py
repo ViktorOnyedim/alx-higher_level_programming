@@ -10,7 +10,7 @@ if __name__ == '__main__':
     letter = "" if len(argv) == 1 else argv[1]
     url = "http://0.0.0.0:5000/search_user"
 
-    r = request.post(url, data={'q': letter})
+    r = requests.post(url, data={'q': letter})
     try:
         response = r.json()
         if response:

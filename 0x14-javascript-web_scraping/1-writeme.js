@@ -16,6 +16,4 @@ fs.writeFile(fileName, content, (err) => {
     console.error(err);
     return;
   }
-
-  console.log('Written successfully!');
 });
